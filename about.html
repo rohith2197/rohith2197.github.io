@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Me - Rohith Pallamreddy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .about-page {
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 80px;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    .about-layout {
+      display: flex;
+      gap: 80px;
+      align-items: flex-start;
+      margin-top: 40px;
+    }
+
+    .about-text {
+      flex: 2;
+      line-height: 2;
+    }
+
+    .about-img {
+      width: 380px;
+      height: 380px;
+      object-fit: cover;
+      border: 4px solid var(--pink);
+      border-radius: 12px;
+      flex-shrink: 0;
+      margin-top: -50px;
+    }
+
+    .skills-section {
+      margin-top: 100px;
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      flex-wrap: nowrap;
+    }
+
+    .skill-column {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .skill-column h3 {
+      color: var(--pink);
+      margin-bottom: 16px;
+      font-size: 1.5rem;
+    }
+
+    .skill-column ul {
+      list-style: none;
+      padding-left: 0;
+      color: var(--muted);
+      line-height: 2;
+      margin: 0;
+    }
+
+    .skills-section .center {
+      text-align: center;
+    }
+
+    .skills-section .right {
+      text-align: right;
+    }
+
+    /* Contact Card */
+    .contact-card {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(6px);
+      border-radius: 16px;
+      padding: 36px 48px;
+      margin-top: 120px;
+      border: 1px solid rgba(255,255,255,0.08);
+      max-width: 1600px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .contact-card a {
+      color: var(--pink);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .contact-card a:hover {
+      color: var(--soft-pink);
+    }
+
+    .contact-card p {
+      margin-bottom: 20px;
+    }
+
+  </style>
+</head>
+<body style="background: #000000;">
+
+<nav>
+  <a class="logo" href="index.html">Home</a>
+  <div class="nav-links">
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="experience.html">Experience</a>
+    <a href="resume.html">Resume</a>
+  </div>
+</nav>
+
+<section class="about-page">
+  <h1 class="section-title">About Me</h1>
+
+  <div class="about-layout">
+    <div class="about-text">
+      <p>
+        I am currently a Computer Science student at Georgia Tech, focusing on modeling, simulation, and intelligence threads. I am part of the No-HEAT VIP program, where I will begin research starting this spring semester.
+      </p>
+      <br>
+      <p>
+        I love tackling projects related to data, the ambiguity of data science, data cleaning, and artificial intelligence.
+      </p>
+      <br>
+      <p>
+        Previously, I worked at System Technology Works as a Computer Scientist Intern, gaining hands-on experience with robotics and humanoid robots.
+      </p>
+      <br>
+      <p>
+        Apart from academics, I enjoy MMA (UFC), Formula 1, and Wrestling.
+      </p>
+    </div>
+    <img src="Data.jpeg" alt="Portrait" class="about-img">
+  </div>
+
+  <section class="skills-section">
+    <div class="skill-column left">
+      <h3>Programming & Data Science</h3>
+      <ul>
+        <li>Python (Pandas, NumPy, SciPy, Matplotlib, TensorFlow, Pybullet, Time Series Complexity, MediaPipe, Vector Embeddings, AI)</li>
+        <li>SQL</li>
+        <li>Java (OOP, Data Structures, GUIs)</li>
+        <li>GeoSpatial Data (LiDAR, Raster, Vector, SOLWEIG, UMEP, QGIS, etc.)</li>
+      </ul>
+    </div>
+
+    <div class="skill-column center">
+      <h3>Mathematics & Statistics</h3>
+      <ul>
+        <li>Descriptive & Inferential Statistics</li>
+        <li>Probability Distributions</li>
+        <li>Hypothesis Testing</li>
+        <li>Linear Algebra & Calculus</li>
+        <li>Discrete Mathematics, Proofs, Graph Theory</li>
+      </ul>
+    </div>
+
+    <div class="skill-column right">
+      <h3>Tools & Platforms</h3>
+      <ul>
+        <li>Git/GitHub</li>
+        <li>Jupyter Notebook</li>
+        <li>VS Code</li>
+        <li>IntelliJ</li>
+        <li>Linux</li>
+        <li>PACE ICE</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <div class="contact-card">
+    <h2 class="section-title" style="margin-bottom: 24px;">Contact</h2>
+    <p>Email: <a href="p.rohith1907@gmail.com">p.rohith1907@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/rohith2197" target="_blank">github.com/rohith2197</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/rohith-pallamreddy/" target="_blank">linkedin.com/in/rohith-pallamreddy</a></p>
+  </div>
+
+</section>
+
+<div class="cursor-highlight" id="cursorHighlight"></div>
+
+</body>
+</html>

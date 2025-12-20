@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Experience - Rohith Pallamreddy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    details.card {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(6px);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      cursor: pointer;
+      transition: transform 0.2s ease, border 0.2s ease;
+    }
+
+    details.card[open] {
+      transform: translateY(-2px);
+      border-color: var(--pink);
+    }
+
+    summary {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--pink);
+      list-style: none;
+    }
+
+    summary::marker {
+      color: var(--pink);
+    }
+
+    details.card p {
+      margin-top: 12px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body style="background: #000000;">
+
+<nav>
+  <a class="logo" href="index.html">Home</a>
+  <div class="nav-links">
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="experience.html">Experience</a>
+    <a href="resume.html">Resume</a>
+  </div>
+</nav>
+
+<section style="max-width: 1000px; margin: auto; padding: 80px 40px;">
+  <h2 class="section-title">Experience</h2>
+
+  <details class="card">
+    <summary>No Heat (Vertically Integrated Project) Research Group Member - Atlanta, GA | Aug 2025 – Present</summary>
+    <p>Using geospatial datasets to learn more about the microclimate of Savannah, GA.</p>
+    <p>Utilizing datasets like Global Earth Engine, Overture Maps, and USGS Lidar Explorer to create raster datasets of building height, canopy height, and land elevation.</p>
+    <p>Employing tools such as SOLWEIG and UROCK to calculate the UTCI of Savannah, GA and determine the path of lowest heat risk between two points.</p>
+  </details>
+
+  <details class="card">
+    <summary>System Technology Works - Alpharetta, GA | Computer Science Intern | May 2024 – Aug 2024</summary>
+    <p>Led a group of interns in a project using Ollama to run an LLM on a humanoid robot (Zeus2Q) to improve response efficiency.</p>
+    <p>Participated in teaching the humanoid robot (Zeus2Q) how to push a cart.</p>
+    <p>Worked on optimizing the robot’s walking capabilities and overall performance.</p>
+  </details>
+
+  <details class="card">
+    <summary>Horror Hacks - Alpharetta, GA | Chief Organizer | Oct 2022 – May 2024</summary>
+    <p>Organized an international hackathon with 40+ participants for two consecutive years.</p>
+    <p>Promoted the hackathon across various platforms to increase participation.</p>
+    <p>Conducted tutorials and workshops ensuring beginners were adequately prepared to participate.</p>
+  </details>
+
+</section>
+
+</body>
+</html>
