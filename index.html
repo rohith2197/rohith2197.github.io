@@ -1,48 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <title>Rohith Pallamreddy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-<nav>
-    <a class="logo" href="index.html">Home</a>
-    <div class="nav-links">
+  </head>
+  <body class="page-enter">
+    <nav>
+      <a class="logo" href="index.html">Home</a>
+      <div class="nav-links">
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
         <a href="experience.html">Experience</a>
         <a href="resume.html">Resume</a>
-    </div>
-</nav>
+      </div>
+    </nav>
+    <section class="hero fade-in">
+      <div class="hero-text">
+        <h1 class="headline">Rohith Pallamreddy</h1>
+        <p id="typewriter" class="subheadline"></p>
+      </div>
+      <img src="me.png" alt="Portrait" class="hero-image">
+    </section>
+    <script>
+      const text = "Data Scientist · Machine Learning Researcher · Systems Engineer";
+      let index = 0;
 
-<section class="hero">
-    <div class="hero-text">
-        <h1>Rohith Pallamreddy</h1>
-        <p>
-            Data Scientist · Programmer · Researcher<br>
-            I work on ambitious technical projects in Data Science, AI, and my personal hobbies.
-        </p>
-    </div>
-
-    <img src="me.png" alt="Portrait">
-</section>
-
-<div class="cursor-highlight" id="cursorHighlight"></div>
-<script>
-    const observer = new IntersectionObserver(entries => {
+      function type() {
+        if (index < text.length) {
+          document.getElementById("typewriter").innerHTML += text.charAt(index);
+          index++;
+          setTimeout(type, 40);
+        }
+      }
+      type();
+    </script>
+    <div class="cursor-highlight" id="cursorHighlight"></div>
+    <script>
+      const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            }
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
         });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
-</script>
-
-</body>
+      }, {
+        threshold: 0.15
+      });
+      document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+    </script>
+    <script>
+      const cursor = document.getElementById("cursorHighlight");
+      document.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+        cursor.style.opacity = "1";
+      });
+    </script>
+  </body>
 </html>

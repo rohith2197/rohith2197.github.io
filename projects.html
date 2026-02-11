@@ -1,125 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <title>Projects - Rohith Pallamreddy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        details.card {
-            background: rgba(255,255,255,0.04);
-            backdrop-filter: blur(6px);
-            border-radius: 16px;
-            padding: 20px 24px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255,255,255,0.08);
-            cursor: pointer;
-            transition: transform 0.2s ease, border 0.2s ease;
-        }
+      details.card {
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(6px);
+        border-radius: 16px;
+        padding: 20px 24px;
+        margin-bottom: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        cursor: pointer;
+        transition: transform 0.2s ease, border 0.2s ease;
+      }
 
-        details.card[open] {
-            transform: translateY(-2px);
-            border-color: var(--pink);
-        }
+      details.card[open] {
+        transform: translateY(-2px);
+        border-color: var(--pink);
+      }
 
-        summary {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--pink);
-            list-style: none;
-        }
+      section {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+        animation: premiumFade 0.9s cubic-bezier(.16, 1, .3, 1) forwards;
+      }
 
-        summary::marker {
-            color: var(--pink);
+      @keyframes premiumFade {
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
         }
+      }
 
-        details.card p {
-            margin-top: 12px;
-            color: var(--muted);
-            line-height: 1.8;
-        }
+      summary {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--pink);
+        list-style: none;
+      }
 
-        .file-preview {
-            margin-top: 16px;
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 12px;
-            padding: 16px;
-            background: rgba(255,255,255,0.02);
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
+      summary::marker {
+        color: var(--pink);
+      }
 
-        .file-preview a {
-            color: var(--pink);
-            text-decoration: none;
-            font-weight: 600;
-        }
+      details.card p {
+        margin-top: 12px;
+        color: var(--muted);
+        line-height: 1.8;
+      }
 
-        .file-preview a:hover {
-            text-decoration: underline;
-        }
+      .file-preview {
+        margin-top: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.02);
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .file-preview a {
+        color: var(--pink);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .file-preview a:hover {
+        text-decoration: underline;
+      }
     </style>
-</head>
-<body style="background: #000000;">
-
-<nav>
-    <a class="logo" href="index.html">Home</a>
-    <div class="nav-links">
+  </head>
+  <body>
+    <nav>
+      <a class="logo" href="index.html">Home</a>
+      <div class="nav-links">
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
         <a href="experience.html">Experience</a>
         <a href="resume.html">Resume</a>
-    </div>
-</nav>
-
-<section style="max-width: 1000px; margin: auto; padding: 80px 40px;">
-    <h2 class="section-title">Projects</h2>
-
-    <details class="card">
+      </div>
+    </nav>
+    <section style="max-width: 1000px; margin: auto; padding: 80px 40px;">
+      <h2 class="section-title">Projects</h2>
+      <details class="card">
         <summary>LADEE Lunar Dust Risk Mapping & Path Optimization | Nov 2025 – Dec 2025</summary>
         <p>Engineered two predictive models using NASA’s LADEE dataset to quantify lunar dust hazards (glass-like shards); implemented a danger coefficient (0–5) based on altitude, local time, and the “terminator effect.”</p>
         <p>Developed a secondary model utilizing particle mass distribution, velocity variance, and impact frequency to assess risk for large-scale micrometeoroid debris.</p>
         <p>Utilized the PyBullet Physics Engine to simulate terrain-level dust accumulation and micrometeoroid impact dispersion to identify high-risk zones across lunar landscapes.</p>
-        <p>Computed optimized rover routes using weighted Dijkstra’s algorithm, reducing dust exposure by approximately 50% compared to
-shortest-path navigation while respecting mission windows</p>
+        <p>Computed optimized rover routes using weighted Dijkstra’s algorithm, reducing dust exposure by approximately 50% compared to shortest-path navigation while respecting mission windows</p>
         <p>Simulated the safest route using PyBullet to ensure feasibility.</p>
         <div class="file-preview">
-            <p>Preview: <a href="LunarDust.pdf" target="_blank">LADEE Lunar Dust Risk Models (PDF)</a></p>
-            <p>GitHub: <a href="https://github.com/rohith2197/LADEE-Lunar-Dust-Risk-Mapping-Path-Optimization" target="_blank">LADEE Dust Repo</a></p>
+          <p>Preview: <a href="LunarDust.pdf" target="_blank">LADEE Lunar Dust Risk Models (PDF)</a>
+          </p>
+          <p>GitHub: <a href="https://github.com/rohith2197/LADEE-Lunar-Dust-Risk-Mapping-Path-Optimization" target="_blank">LADEE Dust Repo</a>
+          </p>
         </div>
-    </details>
-
-    <details class="card">
+      </details>
+      <details class="card">
         <summary>Cosmetics Wizard (Full-Stack Ingredient Analyzer) | Sept 2025 – Nov 2025</summary>
         <p>Built an AI/ML analysis tool for cosmetic safety; processed and cleaned complex chemical datasets using Vector Embeddings to detect synergistic relationships and hazards between ingredients.</p>
-        <p>Built a full-stack interface that generates safety ratings (predicting within 0.3 points) and identifies the top 5 safest and most hazardous
-ingredients from ingredient input</p>
+        <p>Built a full-stack interface that generates safety ratings (predicting within 0.3 points) and identifies the top 5 safest and most hazardous ingredients from ingredient input</p>
         <div class="file-preview">
-            <p>Preview: <a href="CosmeticsWorkflow.pdf" target="_blank">Cosmetics Wizard Project (PDF)</a></p>
-            <p>GitHub: <a href="https://github.com/rohith2197/CosmeticsWizard" target="_blank">Cosmetics Wizard Repo</a></p>
+          <p>Preview: <a href="CosmeticsWorkflow.pdf" target="_blank">Cosmetics Wizard Project (PDF)</a>
+          </p>
+          <p>GitHub: <a href="https://github.com/rohith2197/CosmeticsWizard" target="_blank">Cosmetics Wizard Repo</a>
+          </p>
         </div>
-    </details>
-
-    <details class="card">
+      </details>
+      <details class="card">
         <summary>CounterPunch AI (Computer Vision Defense Analyzer) | May 2025 – Sept 2025</summary>
         <p>Developed a full-stack application using MediaPipe and Computer Vision to analyze boxing defense; implemented Time Series Complexity heuristics to predict head movement and identify predictable patterns.</p>
         <p>Used a pose-detection engine to evaluate guard effectiveness, identifying “open windows” and vulnerable strike zones in real-time.</p>
-        <p>Built an interactive dashboard with dynamic graphs and a ”Predictability Score,” helping beginners improve head movement and reducing
-their vulnerability score by approximately 70% during training drills</p>
+        <p>Built an interactive dashboard with dynamic graphs and a ”Predictability Score,” helping beginners improve head movement and reducing their vulnerability score by approximately 70% during training drills</p>
         <div class="file-preview">
-            <p>Preview: <a href="CounterPunch.pdf" target="_blank">CounterPunch AI Project (PDF)</a></p>
-            <p>GitHub: <a href="https://github.com/rohith2197/CounterPunch" target="_blank">CounterPunch AI Repo</a></p>
+          <p>Preview: <a href="CounterPunch.pdf" target="_blank">CounterPunch AI Project (PDF)</a>
+          </p>
+          <p>GitHub: <a href="https://github.com/rohith2197/CounterPunch" target="_blank">CounterPunch AI Repo</a>
+          </p>
         </div>
-    </details>
-
-    <details class="card">
+      </details>
+      <details class="card">
         <summary>Motorcycle Simulator Project | Aug 2025 – Dec 2025</summary>
         <p>Developing a racing simulator via Georgia Tech Create-X (Idea-to-Prototype) to provide realistic simulation for the gaming industry.</p>
         <p>Utilizing Fusion 360 for subsystem CAD design and an Arduino-based control system to map physical sensor inputs to low-latency game functions.</p>
-    </details>
-
-</section>
-
-</body>
+      </details>
+    </section>
+    <div class="cursor-highlight" id="cursorHighlight"></div>
+    <script>
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, {
+        threshold: 0.15
+      });
+      document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+    </script>
+    <script>
+      const cursor = document.getElementById("cursorHighlight");
+      document.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+        cursor.style.opacity = "1";
+      });
+    </script>
+  </body>
 </html>

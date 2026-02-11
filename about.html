@@ -1,191 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>About Me - Rohith Pallamreddy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    .about-page {
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-top: 80px;
-      padding-left: 40px;
-      padding-right: 40px;
-    }
+  <head>
+    <meta charset="UTF-8">
+    <title>About Me - Rohith Pallamreddy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .about-img:hover {
+        transform: scale(1.05) rotate(2deg);
+        box-shadow:
+          0 0 30px rgba(255, 77, 166, 0.25),
+          0 0 60px rgba(255, 77, 166, 0.15);
+      }
 
-    .about-layout {
-      display: flex;
-      gap: 80px;
-      align-items: flex-start;
-      margin-top: 40px;
-    }
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
 
-    .about-text {
-      flex: 2;
-      line-height: 2;
-    }
+        50% {
+          transform: translateY(-12px);
+        }
 
-    .about-img {
-      width: 380px;
-      height: 380px;
-      object-fit: cover;
-      border: 4px solid var(--pink);
-      border-radius: 12px;
-      flex-shrink: 0;
-      margin-top: -50px;
-    }
+        100% {
+          transform: translateY(0px);
+        }
+      }
 
-    .skills-section {
-      margin-top: 100px;
-      display: flex;
-      justify-content: center;
-      gap: 80px;
-      flex-wrap: nowrap;
-    }
+      .about-page {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+        animation: premiumFade 0.9s cubic-bezier(.16, 1, .3, 1) forwards;
+      }
 
-    .skill-column {
-      flex: 1;
-      min-width: 220px;
-    }
+      @keyframes premiumFade {
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
 
-    .skill-column h3 {
-      color: var(--pink);
-      margin-bottom: 16px;
-      font-size: 1.5rem;
-    }
+      .about-layout {
+        display: flex;
+        gap: 80px;
+        align-items: flex-start;
+        margin-top: 0px;
+        position: relative;
+      }
 
-    .skill-column ul {
-      list-style: none;
-      padding-left: 0;
-      color: var(--muted);
-      line-height: 2;
-      margin: 0;
-    }
+      .about-text p {
+        font-size: 1.05rem;
+        color: var(--muted);
+        transition: all 0.3s ease;
+      }
 
-    .skills-section .center {
-      text-align: center;
-    }
+      .about-text p:hover {
+        color: var(--text);
+        transform: translateX(6px);
+      }
 
-    .skills-section .right {
-      text-align: right;
-    }
+      .about-page {
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 80px;
+        padding-left: 40px;
+        padding-right: 40px;
+      }
 
-    /* Contact Card */
-    .contact-card {
-      background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(6px);
-      border-radius: 16px;
-      padding: 36px 48px;
-      margin-top: 120px;
-      border: 1px solid rgba(255,255,255,0.08);
-      max-width: 1600px;
-      margin-left: auto;
-      margin-right: auto;
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
+      .about-layout {
+        display: flex;
+        gap: 80px;
+        align-items: flex-start;
+        margin-top: 0px;
+      }
 
-    .contact-card a {
-      color: var(--pink);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
+      .about-text {
+        flex: 2;
+        line-height: 2;
+      }
 
-    .contact-card a:hover {
-      color: var(--soft-pink);
-    }
+      .about-img {
+        width: 380px;
+        height: 380px;
+        object-fit: cover;
+        border: 4px solid var(--pink);
+        border-radius: 12px;
+        flex-shrink: 0;
+        margin-top: -0px;
+      }
 
-    .contact-card p {
-      margin-bottom: 20px;
-    }
+      .skills-section {
+        margin-top: 0;
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        /* flex-wrap: wrap; */
+      }
 
-  </style>
-</head>
-<body style="background: #000000;">
+      .skill-column {
+        flex: 1;
+        min-width: 260px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        padding: 30px;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+      }
 
-<nav>
-  <a class="logo" href="index.html">Home</a>
-  <div class="nav-links">
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="experience.html">Experience</a>
-    <a href="resume.html">Resume</a>
-  </div>
-</nav>
+      .skill-column:hover {
+        transform: translateY(-8px) scale(1.02);
+        border-color: var(--pink);
+        box-shadow: 0 0 25px rgba(255, 77, 166, 0.25);
+      }
 
-<section class="about-page">
-  <h1 class="section-title">About Me</h1>
+      .skill-column h3 {
+        color: var(--pink);
+        margin-bottom: 16px;
+        font-size: 1.5rem;
+      }
 
-  <div class="about-layout">
-    <div class="about-text">
-      <p>
-        I am currently a Computer Science student at Georgia Tech, focusing on modeling, simulation, and intelligence threads. I am part of the No-HEAT VIP program, where I will begin research starting this spring semester.
-      </p>
-      <br>
-      <p>
-        I love tackling projects related to data, the ambiguity of data science, data cleaning, and artificial intelligence.
-      </p>
-      <br>
-      <p>
-        Previously, I worked at System Technology Works as a Computer Scientist Intern, gaining hands-on experience with robotics and humanoid robots.
-      </p>
-      <br>
-      <p>
-        Apart from academics, I enjoy MMA (UFC), Formula 1, and Wrestling.
-      </p>
-    </div>
-    <img src="Data.jpeg" alt="Portrait" class="about-img">
-  </div>
+      .skill-column ul {
+        list-style: none;
+        padding-left: 0;
+        color: var(--muted);
+        line-height: 2;
+        margin: 0;
+      }
 
-  <section class="skills-section">
-  <div class="skill-column left">
-    <h3>Programming & Data Science</h3>
-    <ul>
-      <li>Python (Pandas, NumPy, SciPy, Matplotlib, Seaborn, Plotly, TensorFlow, PyTorch, Keras, PyBullet, MediaPipe, OpenCV, Vector Embeddings, AI/ML, CV, NLP, Time Series Complexity)</li>
-      <li>C, C++, Java (OOP, Data Structures, GUIs)</li>
-      <li>SQL, R, Julia, MATLAB, Bash/Shell Scripting</li>
-      <li>GeoSpatial Data (LiDAR, Raster, Vector, SOLWEIG, UMEP, QGIS, ArcGIS, Google Earth Engine, APIs/REST)</li>
-      <li>Docker, Kubernetes, Cloud Platforms (AWS, GCP, Azure)</li>
-    </ul>
-  </div>
+      .skills-section .center {
+        text-align: center;
+      }
 
-  <div class="skill-column center">
-    <h3>Mathematics & Statistics</h3>
-    <ul>
-      <li>Descriptive & Inferential Statistics</li>
-      <li>Probability Distributions & Bayesian Methods</li>
-      <li>Hypothesis Testing</li>
-      <li>Linear Algebra, Calculus, Multivariable Calculus, Differential Equations</li>
-      <li>Discrete Mathematics, Proofs, Graph Theory, Optimization, Numerical Methods</li>
-      <li>Machine Learning Theory, Time Series Analysis</li>
-    </ul>
-  </div>
+      .skills-section .right {
+        text-align: right;
+      }
 
-  <div class="skill-column right">
-    <h3>Tools, Platforms & Creative Skills</h3>
-    <ul>
-      <li>Git/GitHub, GitLab, Jupyter Notebook, VS Code, IntelliJ, Linux/Unix, PACE ICE, Postman, Tableau, Power BI</li>
-      <li>Blender, Maya, Photoshop, Illustrator, CAD, Figma</li>
-      <li>3D Modeling & Animation (5 yrs), Drawing (8 yrs)</li>
-    </ul>
-  </div>
-</section>
+      .contact-card {
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(15px);
+        border-radius: 24px;
+        padding: 50px;
+        margin-top: 0px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        transition: all 0.3s ease;
+      }
 
-  <!-- Contact Section -->
-  <div class="contact-card">
-    <h2 class="section-title" style="margin-bottom: 24px;">Contact</h2>
-    <p>Email: <a href="p.rohith1907@gmail.com">p.rohith1907@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/rohith2197" target="_blank">github.com/rohith2197</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/rohith-pallamreddy/" target="_blank">linkedin.com/in/rohith-pallamreddy</a></p>
-  </div>
+      .contact-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--pink);
+        box-shadow: 0 0 40px rgba(255, 77, 166, 0.2);
+      }
 
-</section>
+      .contact-card a {
+        color: var(--pink);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
 
-<div class="cursor-highlight" id="cursorHighlight"></div>
+      .contact-card a:hover {
+        color: var(--soft-pink);
+      }
 
-</body>
+      .contact-card p {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="logo" href="index.html">Home</a>
+      <div class="nav-links">
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="experience.html">Experience</a>
+        <a href="resume.html">Resume</a>
+      </div>
+    </nav>
+    <section class="about-page">
+      <h1 class="section-title">About Me</h1>
+      <div class="about-layout">
+        <div class="about-text">
+          <p> I am currently a Computer Science student at Georgia Tech, focusing on modeling, simulation, and intelligence threads. I am part of the No-HEAT VIP program, where I will begin research starting this spring semester. </p>
+          <br>
+          <p> I love tackling projects related to data, the ambiguity of data science, data cleaning, and artificial intelligence. </p>
+          <br>
+          <p> Previously, I worked at System Technology Works as a Computer Scientist Intern, gaining hands-on experience with robotics and humanoid robots. </p>
+          <br>
+          <p> Apart from academics, I enjoy MMA (UFC), Formula 1, and Wrestling. </p>
+        </div>
+        <img src="Data.jpeg" alt="Portrait" class="about-img">
+      </div>
+      <section class="skills-section">
+        <div class="skill-column left">
+          <h3>Programming & Data Science</h3>
+          <ul>
+            <li>Python (Pandas, NumPy, SciPy, Matplotlib, Seaborn, Plotly, TensorFlow, PyTorch, Keras, PyBullet, MediaPipe, OpenCV, Vector Embeddings, AI/ML, CV, NLP, Time Series Complexity)</li>
+            <li>C, C++, Java (OOP, Data Structures, GUIs)</li>
+            <li>SQL, R, Julia, MATLAB, Bash/Shell Scripting</li>
+            <li>GeoSpatial Data (LiDAR, Raster, Vector, SOLWEIG, UMEP, QGIS, ArcGIS, Google Earth Engine, APIs/REST)</li>
+            <li>Docker, Kubernetes, Cloud Platforms (AWS, GCP, Azure)</li>
+          </ul>
+        </div>
+        <div class="skill-column center">
+          <h3>Mathematics & Statistics</h3>
+          <ul>
+            <li>Descriptive & Inferential Statistics</li>
+            <li>Probability Distributions & Bayesian Methods</li>
+            <li>Hypothesis Testing</li>
+            <li>Linear Algebra, Calculus, Multivariable Calculus, Differential Equations</li>
+            <li>Discrete Mathematics, Proofs, Graph Theory, Optimization, Numerical Methods</li>
+            <li>Machine Learning Theory, Time Series Analysis</li>
+          </ul>
+        </div>
+        <div class="skill-column right">
+          <h3>Tools, Platforms & Creative Skills</h3>
+          <ul>
+            <li>Git/GitHub, GitLab, Jupyter Notebook, VS Code, IntelliJ, Linux/Unix, PACE ICE, Postman, Tableau, Power BI</li>
+            <li>Blender, Maya, Photoshop, Illustrator, CAD, Figma</li>
+            <li>3D Modeling & Animation (5 yrs), Drawing (8 yrs)</li>
+          </ul>
+        </div>
+      </section>
+      <!-- Contact Section -->
+      <div class="contact-card">
+        <h2 class="section-title" style="margin-bottom: 24px;">Contact</h2>
+        <p>Email: <a href="p.rohith1907@gmail.com">p.rohith1907@gmail.com</a>
+        </p>
+        <p>GitHub: <a href="https://github.com/rohith2197" target="_blank">github.com/rohith2197</a>
+        </p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/rohith-pallamreddy/" target="_blank">linkedin.com/in/rohith-pallamreddy</a>
+        </p>
+      </div>
+    </section>
+    <div class="cursor-highlight" id="cursorHighlight"></div>
+    <script>
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, {
+        threshold: 0.15
+      });
+      document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+    </script>
+    <script>
+      const cursor = document.getElementById("cursorHighlight");
+      document.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+        cursor.style.opacity = "1";
+      });
+    </script>
+  </body>
 </html>
