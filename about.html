@@ -26,6 +26,9 @@
         animation: premiumFade 0.9s cubic-bezier(.16, 1, .3, 1) forwards;
       }
 
+      /* Use a stronger selector to override the general .tech-logo rules */
+
+
       @keyframes premiumFade {
         to { opacity: 1; transform: translateY(0) scale(1); }
       }
@@ -42,13 +45,30 @@
       .about-text p:hover { color: var(--text); transform: translateX(6px); }
 
       .about-img {
-        width: 320px;
-        height: 320px;
-        object-fit: cover;
-        border: 4px solid var(--pink);
-        border-radius: 12px;
-        transition: 0.3s;
-      }
+              width: 320px;
+              height: 320px;
+              object-fit: cover;
+              border: 4px solid var(--pink);
+              border-radius: 12px;
+              transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1); /* Smoother transition */
+
+              /* Ensures the image rotates from its center */
+              transform-origin: center;
+
+              /* Prevents potential blurriness during transform */
+              backface-visibility: hidden;
+            }
+
+            /* The interaction state */
+            .about-img:hover {
+              /* 1. Zoom (scale) and Rotate (deg) */
+              transform: scale(1.15) rotate(5deg);
+
+              /* 2. Glow (matching your button glow style) */
+              border-color: var(--soft-pink);
+              box-shadow: 0 0 20px rgba(255, 77, 166, 0.6),
+                          0 0 40px rgba(255, 77, 166, 0.4);
+            }
 
       /* TECH STACK SECTION (NOW AT START) */
       .tech-stack {
@@ -175,6 +195,24 @@
       .contact-card h2 { color: var(--text); }
       .contact-card a { color: var(--pink); text-decoration: none; font-weight: 600; }
       .contact-card p { margin-bottom: 20px; color: var(--muted); }
+
+      /* 1. Base State: Set them to White */
+      .tech-stack .tech-logo[alt="Rust"],
+      .tech-stack .tech-logo[alt="GitHub"] {
+        filter: brightness(0) invert(1);
+        opacity: 0.5;
+        /* Keep the transition purely on opacity and transform */
+        transition: opacity 0.4s ease, transform 0.4s ease;
+      }
+
+      /* 2. Hover State: Just change Opacity and Scale */
+      .tech-stack .tech-logo[alt="Rust"]:hover,
+      .tech-stack .tech-logo[alt="GitHub"]:hover {
+        opacity: 1;
+        transform: scale(1.15);
+        /* Force the filter to stay exactly the same so it doesn't flicker black */
+        filter: brightness(0) invert(1) !important;
+      }
     </style>
   </head>
   <body>
