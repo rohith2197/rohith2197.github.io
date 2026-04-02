@@ -7,172 +7,165 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-      .about-img:hover {
-        transform: scale(1.05) rotate(2deg);
-        box-shadow:
-          0 0 30px rgba(255, 77, 166, 0.25),
-          0 0 60px rgba(255, 77, 166, 0.15);
-      }
-
-      @keyframes float {
-        0% {
-          transform: translateY(0px);
-        }
-
-        50% {
-          transform: translateY(-12px);
-        }
-
-        100% {
-          transform: translateY(0px);
-        }
-      }
-
+      /* Page Setup */
       .about-page {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 80px 40px;
         opacity: 0;
         transform: translateY(40px) scale(0.98);
         animation: premiumFade 0.9s cubic-bezier(.16, 1, .3, 1) forwards;
       }
 
       @keyframes premiumFade {
-        to {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
+        to { opacity: 1; transform: translateY(0) scale(1); }
       }
 
       .about-layout {
         display: flex;
         gap: 80px;
         align-items: flex-start;
-        margin-top: 0px;
-        position: relative;
+        margin-bottom: 40px;
       }
 
-      .about-text p {
-        font-size: 1.05rem;
-        color: var(--muted);
-        transition: all 0.3s ease;
-      }
-
-      .about-text p:hover {
-        color: var(--text);
-        transform: translateX(6px);
-      }
-
-      .about-page {
-        max-width: 1000px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: 80px;
-        padding-left: 40px;
-        padding-right: 40px;
-      }
-
-      .about-layout {
-        display: flex;
-        gap: 80px;
-        align-items: flex-start;
-        margin-top: 0px;
-      }
-
-      .about-text {
-        flex: 2;
-        line-height: 2;
-      }
+      .about-text { flex: 2; line-height: 2; }
+      .about-text p { font-size: 1.05rem; color: var(--muted); transition: 0.3s; }
+      .about-text p:hover { color: var(--text); transform: translateX(6px); }
 
       .about-img {
-        width: 380px;
-        height: 380px;
+        width: 320px;
+        height: 320px;
         object-fit: cover;
         border: 4px solid var(--pink);
         border-radius: 12px;
-        flex-shrink: 0;
-        margin-top: -0px;
+        transition: 0.3s;
       }
 
-      .skills-section {
-        margin-top: 0;
+      /* TECH STACK SECTION (NOW AT START) */
+      .tech-stack {
+        margin-bottom: 60px;
+        padding: 40px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .tech-stack h3 {
+        color: var(--pink);
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        opacity: 0.7;
+      }
+
+      .logo-track {
         display: flex;
+        gap: 35px;
         justify-content: center;
-        gap: 60px;
-        /* flex-wrap: wrap; */
+        align-items: center;
+        flex-wrap: wrap;
       }
 
-      .skill-column {
-        flex: 1;
-        min-width: 260px;
-        background: rgba(255, 255, 255, 0.03);
+      .tech-logo {
+        height: 35px;
+        width: auto;
+        filter: grayscale(100%) brightness(0.8);
+        opacity: 0.5;
+        transition: all 0.4s ease;
+      }
+
+      .tech-logo:hover {
+        filter: grayscale(0%) brightness(1);
+        opacity: 1;
+        transform: scale(1.15);
+      }
+
+      /* SHARED CARD FORMAT */
+      .skill-column, .contact-card {
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(15px);
         border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 20px;
-        padding: 30px;
-        backdrop-filter: blur(10px);
+        border-radius: 24px;
+        padding: 50px;
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto 40px auto;
+        box-sizing: border-box;
         transition: all 0.3s ease;
       }
 
-      .skill-column:hover {
-        transform: translateY(-8px) scale(1.02);
-        border-color: var(--pink);
-        box-shadow: 0 0 25px rgba(255, 77, 166, 0.25);
+      .skill-column {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        justify-content: space-between;
       }
+
+      .skill-text-container { flex: 1; }
 
       .skill-column h3 {
         color: var(--pink);
-        margin-bottom: 16px;
-        font-size: 1.5rem;
+        margin-bottom: 24px;
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-top: 0;
       }
 
       .skill-column ul {
         list-style: none;
-        padding-left: 0;
+        padding: 0;
         color: var(--muted);
-        line-height: 2;
-        margin: 0;
-      }
-
-      .skills-section .center {
-        text-align: center;
-      }
-
-      .skills-section .right {
-        text-align: right;
-      }
-
-      .contact-card {
-        background: rgba(255, 255, 255, 0.04);
-        backdrop-filter: blur(15px);
-        border-radius: 24px;
-        padding: 50px;
-        margin-top: 0px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 1.1rem;
         line-height: 1.8;
-        transition: all 0.3s ease;
       }
 
-      .contact-card:hover {
+      .skill-column ul li {
+        margin-bottom: 8px;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .skill-column ul li::before {
+        content: "•";
+        color: var(--pink);
+        position: absolute;
+        left: 0;
+      }
+
+      .skill-banner {
+        width: 240px;
+        height: 240px;
+        flex-shrink: 0;
+        object-fit: cover;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Responsive Fix */
+      @media (max-width: 850px) {
+        .about-layout, .skill-column {
+          flex-direction: column;
+          text-align: center;
+        }
+        .skill-banner, .about-img {
+          margin: 20px auto 0;
+          width: 100%;
+          max-width: 300px;
+          height: auto;
+        }
+        .skill-column ul li { text-align: left; }
+      }
+
+      .skill-column:hover, .contact-card:hover {
         transform: translateY(-6px);
         border-color: var(--pink);
         box-shadow: 0 0 40px rgba(255, 77, 166, 0.2);
       }
 
-      .contact-card a {
-        color: var(--pink);
-        text-decoration: none;
-        font-weight: 600;
-        transition: color 0.3s ease;
-      }
-
-      .contact-card a:hover {
-        color: var(--soft-pink);
-      }
-
-      .contact-card p {
-        margin-bottom: 20px;
-      }
+      .contact-card h2 { color: var(--text); }
+      .contact-card a { color: var(--pink); text-decoration: none; font-weight: 600; }
+      .contact-card p { margin-bottom: 20px; color: var(--muted); }
     </style>
   </head>
   <body>
@@ -185,78 +178,90 @@
         <a href="resume.html">Resume</a>
       </div>
     </nav>
+
     <section class="about-page">
       <h1 class="section-title">About Me</h1>
+
       <div class="about-layout">
         <div class="about-text">
-          <p> I am currently a Computer Science student at Georgia Tech, focusing on perception, simulation, and intelligence threads. I am currently participating in research at the Resilient and Equitable Mobility Analytics and Planning at Georgia Tech! </p>
+          <p>I am currently a Computer Science student at Georgia Tech, focusing on perception, simulation, and intelligence threads. I am currently participating in research at the Resilient and Equitable Mobility Analytics and Planning at Georgia Tech!</p>
           <br>
-          <p> I love tackling projects related to ML/AI, perception, simulation, and embedded systems. </p>
+          <p>I love tackling projects related to ML/AI, perception, simulation, and embedded systems.</p>
           <br>
-          <p> My current passions are mainly in simulation, perception, path-planning, and the embedded systems of Autonomous Vehicles. </p>
+          <p>My current passions are mainly in simulation, perception, path-planning, and the embedded systems of Autonomous Vehicles.</p>
           <br>
-          <p> Apart from academics, I enjoy MMA (UFC), Formula 1, and Wrestling. </p>
+          <p>Apart from academics, I enjoy MMA, Formula 1, and Wrestling.</p>
         </div>
         <img src="Data.jpeg" alt="Portrait" class="about-img">
       </div>
-      <section class="skills-section">
-      <div class="skill-column left">
-        <h3>Programming & Data Science</h3>
-        <ul>
-          <li>Python (Pandas, NumPy, SciPy, C-Extensions, Cython, TensorFlow, PyTorch, Keras, PyBullet, MediaPipe, OpenCV, AI/ML, CV)</li>
-          <li>C++20 (STL, Boost, Templates, RAII), Rust, C, Java (OOP, Data Structures, GUIs)</li>
-          <li>Optimization (TensorRT, CUDA Kernels, Distributed Training, Latency Optimization)</li>
-          <li>Robotics & Perception (ROS2, ActionLib, Gazebo, PCL, Eigen, SLAM, Kalman/EKF)</li>
-          <li>SQL, R, Julia, MATLAB, Bash/Shell Scripting</li>
-          <li>GeoSpatial Data (LiDAR, Raster, Vector, QGIS, ArcGIS, Google Earth Engine)</li>
-        </ul>
-      </div>
-      <div class="skill-column center">
-        <h3>Mathematics & Statistics</h3>
-        <ul>
-          <li>Descriptive & Inferential Statistics</li>
-          <li>Probability Distributions & Bayesian Methods</li>
-          <li>Hypothesis Testing</li>
-          <li>Linear Algebra, Calculus, Multivariable Calculus, Differential Equations</li>
-          <li>Discrete Mathematics, Proofs, Graph Theory, Distributed Optimization, Numerical Methods</li>
-          <li>Machine Learning Theory, Complexity Analysis, Time Series Analysis</li>
-        </ul>
+
+      <section class="tech-stack">
+        <h3>Core Technologies</h3>
+        <div class="logo-track">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" title="Python" alt="Python" class="tech-logo">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" title="C++" alt="C++" class="tech-logo">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg" title="Rust" alt="Rust" class="tech-logo">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" title="PyTorch" alt="PyTorch" class="tech-logo">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" title="TensorFlow" alt="TensorFlow" class="tech-logo">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ros/ros-original.svg" title="ROS" alt="ROS" class="tech-logo">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" title="MATLAB" alt="MATLAB" class="tech-logo">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" title="GitHub" alt="GitHub" class="tech-logo" style="filter: invert(1) grayscale(100%);">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" title="Linux" alt="Linux" class="tech-logo">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" title="OpenCV" alt="OpenCV" class="tech-logo">
         </div>
-        <div class="skill-column right">
-          <h3>Tools, Platforms & Creative Skills</h3>
+      </section>
+
+      <div class="skill-column">
+        <div class="skill-text-container">
+          <h3>Programming & Data Science</h3>
           <ul>
-            <li>Git/GitHub, Bazel (Hermetic Builds), CI/CD, Valgrind, Perf, Jupyter, VS Code, Postman</li>
-            <li>Linux Kernel/Systems, PACE ICE, Tableau, Power BI</li>
-            <li>Sim & Testing (HIL/SIL Testing, UE4, Isaac Sim)</li>
-            <li>Blender, Maya, Photoshop, Illustrator, CAD, Figma</li>
-            <li>3D Modeling & Animation (5 yrs), Drawing (8 yrs)</li>
+            <li>Python (TensorFlow, PyTorch, PyBullet, OpenCV)</li>
+            <li>C++20, Rust, C, Java</li>
+            <li>Optimization (TensorRT, CUDA Kernels)</li>
+            <li>Robotics & Perception (ROS2, SLAM, Kalman/EKF)</li>
+            <li>SQL, R, MATLAB, Bash</li>
           </ul>
         </div>
-        </section>
-      <!-- Contact Section -->
+        <img src="programming.jpg" alt="Programming" class="skill-banner">
+      </div>
+
+      <div class="skill-column">
+        <div class="skill-text-container">
+          <h3>Mathematics & Statistics</h3>
+          <ul>
+            <li>Descriptive & Inferential Statistics</li>
+            <li>Probability & Bayesian Methods</li>
+            <li>Linear Algebra & Multivariable Calculus</li>
+            <li>Differential Equations & Graph Theory</li>
+            <li>Machine Learning Theory & Time Series</li>
+          </ul>
+        </div>
+        <img src="math.jpg" alt="Mathematics" class="skill-banner">
+      </div>
+
+      <div class="skill-column">
+        <div class="skill-text-container">
+          <h3>Tools & Creative Skills</h3>
+          <ul>
+            <li>Git, GitHub, Bazel, CI/CD, Valgrind, Perf</li>
+            <li>Linux Kernel/Systems, PACE ICE</li>
+            <li>Sim & Testing (HIL/SIL, Isaac Sim)</li>
+            <li>Blender, Maya, Photoshop, CAD</li>
+          </ul>
+        </div>
+        <img src="tools.jpg" alt="Tools" class="skill-banner">
+      </div>
+
       <div class="contact-card">
         <h2 class="section-title" style="margin-bottom: 24px;">Contact</h2>
-        <p>Email: <a href="p.rohith1907@gmail.com">p.rohith1907@gmail.com</a>
-        </p>
-        <p>GitHub: <a href="https://github.com/rohith2197" target="_blank">github.com/rohith2197</a>
-        </p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/rohith-pallamreddy/" target="_blank">linkedin.com/in/rohith-pallamreddy</a>
-        </p>
+        <p>Email: <a href="mailto:p.rohith1907@gmail.com">p.rohith1907@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/rohith2197" target="_blank">github.com/rohith2197</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/rohith-pallamreddy/" target="_blank">linkedin.com/in/rohith-pallamreddy</a></p>
       </div>
     </section>
+
     <div class="cursor-highlight" id="cursorHighlight"></div>
-    <script>
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      }, {
-        threshold: 0.15
-      });
-      document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
-    </script>
+
     <script>
       const cursor = document.getElementById("cursorHighlight");
       document.addEventListener("mousemove", (e) => {

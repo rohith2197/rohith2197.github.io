@@ -3,9 +3,105 @@
   <head>
     <meta charset="UTF-8">
     <title>Rohith Pallamreddy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-height: 100vh;
+        background-color: #0a0a0a;
+        overflow-x: hidden;
+      }
+
+      .hero {
+        display: flex;
+        align-items: center; /* Keeps text and image vertically leveled with each other */
+        justify-content: center;
+        gap: 120px;
+        min-height: 100vh;
+        padding: 0 8%;
+        box-sizing: border-box;
+      }
+
+      .hero-text {
+        width: 600px;
+        text-align: left;
+        /* Pulls the text/image combo UP from the center of the screen */
+        margin-top: -10vh;
+      }
+
+      .headline {
+        line-height: 1.05;
+        margin-bottom: 20px;
+        font-size: 5rem;
+        font-weight: 700;
+        letter-spacing: -2px;
+      }
+
+      .subheadline {
+        font-size: 1.2rem;
+        color: var(--muted);
+        min-height: 1.8em;
+        display: block;
+        white-space: nowrap;
+        letter-spacing: 0.8px;
+        opacity: 0.9;
+      }
+
+      .hero-image {
+        width: 480px;
+        height: auto;
+        border-radius: 30px;
+        flex-shrink: 0;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        /* Pulls the image UP by the same amount as the text */
+        margin-top: -10vh;
+      }
+
+      /* MOBILE RESPONSIVENESS */
+      @media (max-width: 1100px) {
+        .hero { gap: 60px; }
+        .hero-text, .hero-image { margin-top: -5vh; }
+        .headline { font-size: 4rem; }
+        .hero-image { width: 380px; }
+      }
+
+      @media (max-width: 850px) {
+        .hero {
+          flex-direction: column-reverse;
+          gap: 40px;
+          padding: 80px 24px;
+          text-align: center;
+        }
+
+        .hero-text, .hero-image {
+          width: 100%;
+          text-align: center;
+          margin-top: 0; /* Reset the "pull up" for mobile stacking */
+        }
+
+        .subheadline {
+          white-space: normal;
+          font-size: 1.1rem;
+        }
+
+        .hero-image {
+          width: 300px;
+          max-width: 85%;
+        }
+
+        .headline {
+          font-size: 3.2rem;
+        }
+      }
+
+      @media (pointer: coarse) {
+        #cursorHighlight { display: none; }
+      }
+    </style>
   </head>
   <body class="page-enter">
     <nav>
@@ -17,46 +113,50 @@
         <a href="resume.html">Resume</a>
       </div>
     </nav>
+
     <section class="hero fade-in">
       <div class="hero-text">
-        <h1 class="headline">Rohith Pallamreddy</h1>
+        <h1 class="headline">Rohith<br>Pallamreddy</h1>
         <p id="typewriter" class="subheadline"></p>
       </div>
       <img src="me.png" alt="Portrait" class="hero-image">
     </section>
+
     <script>
       const text = "Software Engineer · ML Researcher · AV Enthusiast";
       let index = 0;
+      const typewriterElement = document.getElementById("typewriter");
 
       function type() {
         if (index < text.length) {
-          document.getElementById("typewriter").innerHTML += text.charAt(index);
+          typewriterElement.innerHTML += text.charAt(index);
           index++;
-          setTimeout(type, 40);
+          setTimeout(type, 45);
         }
       }
-      type();
-    </script>
-    <div class="cursor-highlight" id="cursorHighlight"></div>
-    <script>
+
+      window.addEventListener('load', () => {
+        setTimeout(type, 800);
+      });
+
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
           }
         });
-      }, {
-        threshold: 0.15
-      });
+      }, { threshold: 0.15 });
       document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
-    </script>
-    <script>
+
       const cursor = document.getElementById("cursorHighlight");
-      document.addEventListener("mousemove", (e) => {
-        cursor.style.left = e.clientX + "px";
-        cursor.style.top = e.clientY + "px";
-        cursor.style.opacity = "1";
-      });
+      if (window.matchMedia("(pointer: fine)").matches) {
+          document.addEventListener("mousemove", (e) => {
+            cursor.style.left = e.clientX + "px";
+            cursor.style.top = e.clientY + "px";
+            cursor.style.opacity = "1";
+          });
+      }
     </script>
+    <div class="cursor-highlight" id="cursorHighlight"></div>
   </body>
 </html>
