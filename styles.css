@@ -15,30 +15,24 @@
 }
 /* Apply the base color to the HTML level so over-scroll matches */
 /* 1. The Root Canvas */
-html {
-  /* Fixes the 'viewport' height issue on mobile */
-  height: -webkit-fill-available;
-  background-color: #000000;
-  overflow-x: hidden;
+/* Update your styles.css with this block */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    /* This creates a subtle gradient that does NOT move */
+    background: linear-gradient(-90deg, #131010 0%, #000000 100%) no-repeat fixed;
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    overflow-x: hidden;
 }
 
-body {
-  /* Tells the body to be exactly the height of the screen, no more */
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
+/* IMPORTANT: Delete the entire @keyframes gradientShift { ... } block from your CSS */
 
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+/* REMOVE the @keyframes gradientShift block entirely if it's still there */
 
-  /* Keep your gradient fixed so it doesn't move when the 'bounce' happens */
-  background: linear-gradient(-90deg, #000000 0%, #131010 50%, #000000 100%) fixed;
-  background-size: 200% 200%;
-  animation: gradientShift 8s ease infinite;
-
-  /* This prevents 'touch-action' from triggering weird double-taps/scrolls */
-  touch-action: pan-y;
-}
+/* You can delete the @keyframes gradientShift block entirely */
 @keyframes gradientShift {
   from {
     background-position: 0% 0%;
