@@ -157,14 +157,19 @@ section {
   text-shadow: 0 0 15px rgba(255, 77, 166, 0.8),
     0 0 35px rgba(255, 77, 166, 0.5), 0 0 60px rgba(255, 77, 166, 0.25);
 }
+/* Update this in styles.css */
 .fade-in {
-  opacity: 0;
-  transform: translateY(40px) scale(0.98);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0 !important;
+  transform: translateY(30px) scale(0.98) !important;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  visibility: hidden; /* Prevents ghost clicks before it appears */
 }
+
 .fade-in.visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  visibility: visible;
 }
 .section-title {
   display: inline-block;
@@ -258,4 +263,95 @@ summary::marker {
   opacity: 0;
   transition: opacity 0.3s ease-out;
   z-index: 9999;
+}
+
+/* --- FINAL REFINED MOBILE RESPONSIVENESS --- */
+
+@media (max-width: 768px) {
+  /* 1. Navigation: Tighten height and keep Side-by-Side */
+  nav {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px 5vw !important; /* Reduced from 15px/24px to pull content up */
+    gap: 10px !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    gap: 8px !important;
+    margin-left: 0 !important;
+  }
+
+  .nav-links a {
+    margin-left: 0 !important;
+    font-size: 0.8rem !important;
+    white-space: nowrap !important;
+  }
+
+  nav .logo {
+    font-size: 0.95rem !important;
+  }
+
+  /* 2. Gap Reduction: Remove unnecessary top space */
+  section {
+    padding: 20px 5vw !important; /* Reduced top padding from 80px/60px to 20px */
+  }
+
+  .about-page {
+    padding-top: 10px !important; /* Specifically target the About Page's internal padding */
+  }
+
+  .section-title {
+    display: block !important;
+    text-align: center !important;
+    margin: 0 auto 20px auto !important; /* Reduced bottom margin */
+    width: fit-content !important;
+  }
+
+  /* 3. About Page Layout */
+  .about-layout {
+    flex-direction: column-reverse !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 20px !important; /* Tighter gap between text and image */
+  }
+
+  .about-img {
+    width: 250px !important; /* Slightly smaller to save vertical space */
+    height: 250px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 4. Skills Section Stacking */
+  .skills-section {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 15px !important;
+    margin-top: 30px !important;
+  }
+
+  .skill-column {
+    width: 100% !important;
+    min-width: unset !important;
+    padding: 20px !important; /* Tighter padding inside skill boxes */
+    text-align: center !important;
+  }
+
+  .skill-column ul {
+    display: inline-block !important;
+    text-align: left !important;
+  }
+
+  /* 5. Home Page & Typography */
+  .hero {
+    flex-direction: column-reverse !important;
+    text-align: center !important;
+    min-height: auto !important; /* Allows it to shrink instead of forcing full screen */
+    padding-top: 40px !important;
+  }
+
+  .headline {
+    font-size: 2.2rem !important;
+  }
 }

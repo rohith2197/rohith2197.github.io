@@ -7,71 +7,109 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-      details.card {
-        background: rgba(255, 255, 255, 0.04);
-        backdrop-filter: blur(6px);
-        border-radius: 16px;
-        padding: 20px 24px;
-        margin-bottom: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        cursor: pointer;
-        transition: transform 0.2s ease, border 0.2s ease;
-      }
+    /* --- GRID LAYOUT --- */
+          .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2x2 on desktop */
+            gap: 30px;
+            margin-top: 40px;
+          }
 
-      details.card[open] {
-        transform: translateY(-2px);
-        border-color: var(--pink);
-      }
+          .project-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+          }
 
-      section {
-        opacity: 0;
-        transform: translateY(40px) scale(0.98);
-        animation: premiumFade 0.9s cubic-bezier(.16, 1, .3, 1) forwards;
-      }
+          .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--pink);
+            box-shadow: 0 15px 30px rgba(255, 77, 166, 0.15);
+          }
 
-      @keyframes premiumFade {
-        to {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
-      }
+          /* Image Container */
+          .project-image {
+            width: 100%;
+            height: 200px;
+            background: #1a1a1a; /* Fallback color */
+            overflow: hidden;
+          }
 
-      summary {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: var(--pink);
-        list-style: none;
-      }
+          .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+          }
 
-      summary::marker {
-        color: var(--pink);
-      }
+          .project-card:hover .project-image img {
+            transform: scale(1.1);
+          }
 
-      details.card p {
-        margin-top: 12px;
-        color: var(--muted);
-        line-height: 1.8;
-      }
+          /* Content Area */
+          .project-content {
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+          }
 
-      .file-preview {
-        margin-top: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
-        padding: 16px;
-        background: rgba(255, 255, 255, 0.02);
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
+          .project-content h3 {
+            color: var(--pink);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+          }
 
-      .file-preview a {
-        color: var(--pink);
-        text-decoration: none;
-        font-weight: 600;
-      }
+          .project-content p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+          }
 
-      .file-preview a:hover {
-        text-decoration: underline;
-      }
+          .project-links {
+            margin-top: auto;
+            display: flex;
+            gap: 15px;
+          }
+
+          .project-links a {
+            color: var(--soft-pink);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 143, 199, 0.3);
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+          }
+
+          .project-links a:hover {
+            background: var(--pink);
+            color: white;
+            border-color: var(--pink);
+          }
+
+          /* --- MOBILE FIX --- */
+          @media (max-width: 768px) {
+            .projects-grid {
+              grid-template-columns: 1fr; /* Stacks vertically on phone */
+              gap: 20px;
+            }
+
+            section {
+              padding: 40px 20px !important;
+            }
+
+            .project-image {
+              height: 180px;
+            }
+          }
     </style>
   </head>
   <body>
@@ -84,50 +122,67 @@
         <a href="resume.html">Resume</a>
       </div>
     </nav>
-    <section style="max-width: 1000px; margin: auto; padding: 80px 40px;">
-      <h2 class="section-title">Projects</h2>
-      <details class="card">
-        <summary>LADEE Lunar Dust Risk Mapping & Path Optimization | Nov 2025 – Dec 2025</summary>
-        <p>Engineered two predictive models using NASA’s LADEE dataset to quantify lunar dust hazards (glass-like shards); implemented a danger coefficient (0–5) based on altitude, local time, and the “terminator effect.”</p>
-        <p>Developed a secondary model utilizing particle mass distribution, velocity variance, and impact frequency to assess risk for large-scale micrometeoroid debris.</p>
-        <p>Utilized the PyBullet Physics Engine to simulate terrain-level dust accumulation and micrometeoroid impact dispersion to identify high-risk zones across lunar landscapes.</p>
-        <p>Computed optimized rover routes using weighted Dijkstra’s algorithm, reducing dust exposure by approximately 50% compared to shortest-path navigation while respecting mission windows</p>
-        <p>Simulated the safest route using PyBullet to ensure feasibility.</p>
-        <div class="file-preview">
-          <p>Preview: <a href="LunarDust.pdf" target="_blank">LADEE Lunar Dust Risk Models (PDF)</a>
-          </p>
-          <p>GitHub: <a href="https://github.com/rohith2197/LADEE-Lunar-Dust-Risk-Mapping-Path-Optimization" target="_blank">LADEE Dust Repo</a>
-          </p>
+      <section style="max-width: 1100px; margin: auto; padding: 80px 40px;">
+      <h2 class="section-title fade-in">Projects</h2>
+
+      <div class="projects-grid fade-in">
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="lunar_dust_preview.jpg" alt="LADEE Lunar Dust Project">
+          </div>
+          <div class="project-content">
+            <h3>LADEE Lunar Dust Mapping</h3>
+            <p>Predictive hazard models using NASA datasets. Implemented weighted Dijkstra’s for rover path optimization in PyBullet.</p>
+            <div class="project-links">
+              <a href="https://github.com/rohith2197/LADEE-Lunar-Dust-Risk-Mapping-Path-Optimization" target="_blank">GitHub</a>
+              <a href="LunarDust.pdf" target="_blank">PDF</a>
+            </div>
+          </div>
         </div>
-      </details>
-      <details class="card">
-        <summary>Cosmetics Wizard (Full-Stack Ingredient Analyzer) | Sept 2025 – Nov 2025</summary>
-        <p>Built an AI/ML analysis tool for cosmetic safety; processed and cleaned complex chemical datasets using Vector Embeddings to detect synergistic relationships and hazards between ingredients.</p>
-        <p>Built a full-stack interface that generates safety ratings (predicting within 0.3 points) and identifies the top 5 safest and most hazardous ingredients from ingredient input</p>
-        <div class="file-preview">
-          <p>Preview: <a href="CosmeticsWorkflow.pdf" target="_blank">Cosmetics Wizard Project (PDF)</a>
-          </p>
-          <p>GitHub: <a href="https://github.com/rohith2197/CosmeticsWizard" target="_blank">Cosmetics Wizard Repo</a>
-          </p>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="cosmetics_preview.jpg" alt="Cosmetics Wizard">
+          </div>
+          <div class="project-content">
+            <h3>Cosmetics Wizard</h3>
+            <p>Full-stack ingredient analyzer using Vector Embeddings to detect synergistic chemical hazards and safety ratings.</p>
+            <div class="project-links">
+              <a href="https://github.com/rohith2197/CosmeticsWizard" target="_blank">GitHub</a>
+              <a href="CosmeticsWorkflow.pdf" target="_blank">PDF</a>
+            </div>
+          </div>
         </div>
-      </details>
-      <details class="card">
-        <summary>CounterPunch AI (Computer Vision Defense Analyzer) | May 2025 – Sept 2025</summary>
-        <p>Developed a full-stack application using MediaPipe and Computer Vision to analyze boxing defense; implemented Time Series Complexity heuristics to predict head movement and identify predictable patterns.</p>
-        <p>Used a pose-detection engine to evaluate guard effectiveness, identifying “open windows” and vulnerable strike zones in real-time.</p>
-        <p>Built an interactive dashboard with dynamic graphs and a ”Predictability Score,” helping beginners improve head movement and reducing their vulnerability score by approximately 70% during training drills</p>
-        <div class="file-preview">
-          <p>Preview: <a href="CounterPunch.pdf" target="_blank">CounterPunch AI Project (PDF)</a>
-          </p>
-          <p>GitHub: <a href="https://github.com/rohith2197/CounterPunch" target="_blank">CounterPunch AI Repo</a>
-          </p>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="counterpunch_preview.jpg" alt="CounterPunch AI">
+          </div>
+          <div class="project-content">
+            <h3>CounterPunch AI</h3>
+            <p>Computer Vision defense analyzer using MediaPipe and Time Series Complexity to predict head movement patterns.</p>
+            <div class="project-links">
+              <a href="https://github.com/rohith2197/CounterPunch" target="_blank">GitHub</a>
+              <a href="CounterPunch.pdf" target="_blank">PDF</a>
+            </div>
+          </div>
         </div>
-      </details>
-      <details class="card">
-        <summary>Motorcycle Simulator Project | Aug 2025 – Dec 2025</summary>
-        <p>Developing a racing simulator via Georgia Tech Create-X (Idea-to-Prototype) to provide realistic simulation for the gaming industry.</p>
-        <p>Utilizing Fusion 360 for subsystem CAD design and an Arduino-based control system to map physical sensor inputs to low-latency game functions.</p>
-      </details>
+
+        <div class="project-card">
+                  <div class="project-image">
+                    <img src="motorcycle_preview.jpg" alt="Motorcycle Simulator">
+                  </div>
+                  <div class="project-content">
+                    <h3>Motorcycle Simulator</h3>
+                    <p>GT Create-X prototype utilizing Fusion 360 CAD and Arduino-based control systems for low-latency racing simulation.</p>
+                    <div class="project-links">
+                      <a href="#" style="cursor: default; opacity: 0.7; border-color: rgba(255, 255, 255, 0.2); color: var(--muted);" onclick="return false;">Internal Documentation</a>
+                    </div>
+                  </div>
+                </div>
+
+      </div>
     </section>
     <div class="cursor-highlight" id="cursorHighlight"></div>
     <script>

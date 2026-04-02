@@ -51,6 +51,104 @@
         margin-top: 12px;
         line-height: 1.8;
       }
+      /* --- EXPERIENCE GRID --- */
+      .experience-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Default to 1 col for readability */
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      @media (min-width: 900px) {
+        .experience-grid {
+          grid-template-columns: 1fr 1fr; /* 2 columns on larger screens */
+        }
+      }
+
+      .exp-card {
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .exp-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--pink);
+        box-shadow: 0 12px 24px rgba(255, 77, 166, 0.15);
+      }
+
+      .exp-header {
+        margin-bottom: 15px;
+      }
+
+      .exp-header h3 {
+        color: var(--pink);
+        font-size: 1.25rem;
+        margin-bottom: 4px;
+      }
+
+      .exp-company {
+        color: var(--soft-pink);
+        font-weight: 600;
+        font-size: 0.95rem;
+        display: block;
+      }
+
+      .exp-meta {
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin-top: 4px;
+        font-style: italic;
+      }
+
+      .exp-content {
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+
+      .exp-content p {
+        margin-bottom: 12px;
+        position: relative;
+        padding-left: 18px;
+      }
+
+      /* Custom bullet points */
+      .exp-content p::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--pink);
+        font-weight: bold;
+      }
+
+      .exp-image {
+        width: 100%;
+        height: 160px; /* Shorter than project images to prioritize text */
+        background: #1a1a1a;
+        margin-bottom: 20px;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .exp-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.8;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+      }
+
+      .exp-card:hover .exp-image img {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+      
     </style>
   </head>
   <nav>
@@ -62,37 +160,103 @@
       <a href="resume.html">Resume</a>
     </div>
   </nav>
-  <section style="max-width: 1000px; margin: auto; padding: 80px 40px;">
+  <section style="max-width: 1100px; margin: auto; padding: 80px 40px;">
     <h2 class="section-title">Experience</h2>
-    <details class="card">
-      <summary>Software Engineer (Machine Learning Researcher) at REMAP - Atlanta, GA | Jan 2026 – Present</summary>
-      <p>Designing machine learning pipelines for large-scale spatiotemporal mobility data (anonymous cellphone trajectories) to enable predictive modeling of urban travel behavior</p>
-      <p>Implementing and benchmarking algorithmic trajectory reconstruction methods (map-matching) as preprocessing for downstream ML models</p>
-      <p>Developing predictive and graph-based learning models to forecast neighborhood-level mobility changes during extreme heat events</p>
-    </details>
-    <details class="card">
-      <summary>Software Engineer (Microclimate Modeling Researcher) at No Heat (Vertically Integrated Project) - Atlanta, GA | Aug 2025 – Present</summary>
-      <p>Engineered a geospatial data processing pipeline to generate high-resolution urban microclimate features (building height, canopy, elevation)</p>
-      <p>Integrated LiDAR-derived features with physics-based thermal models using Google Earth Engine and SOLWEIG</p>
-      <p>Implementing UTCI-based thermal exposure models and route-optimization logic, identifying pedestrian paths that reduce heat exposure by approximately 12°C without increasing distance</p>
-    </details>
-    <details class="card">
-      <summary>Software Engineer Intern (Systems and Machine Learning) at Kavi Audio - Atlanta, GA | Aug 2024 – Present</summary>
-      <p>Developed an NLP-based recommendation system using transcript similarity analysis to automate/personalize recommendations</p>
-      <p>Migrated local authentication systems to AWS Cognito to enhance security, user data encryption, and cloud infrastructure scalability</p>
-      <p>Developed ”Project Amplify” using C++ and Raspberry Pi 4 to convert analog radio waves into digital internet radio streams</p>
-    </details>
-    <details class="card">
-      <summary>Lead Software Engineer Intern (Machine Learning) at System Technology Works - Alpharetta, GA | May 2024 – Aug 2024</summary>
-      <p>Led deployment of large language models on an embedded humanoid robot (Zeus2Q), optimizing on-device inference pipelines using Ollama</p>
-      <p>Reduced inference latency through model selection, quantization, and system-level optimizations</p>
-    </details>
-    <details class="card">
-      <summary>Chief Organizer at Horror Hacks - Alpharetta, GA | Oct 2022 – May 2024</summary>
-      <p>Founded and scaled an international hackathon, designing technical tracks focused on AI, web, and systems programming</p>
-      <p>Authored and delivered hands-on technical workshops, lowering entry barriers for first-time developers</p>
-    </details>
-  </section>
+
+    <div class="experience-grid">
+          <div class="exp-card">
+            <div class="exp-image">
+              <img src="gm_tech.jpg" alt="General Motors Autonomous Vehicles">
+            </div>
+            <div class="exp-header">
+              <h3>Software Engineering Intern</h3>
+              <span class="exp-company">General Motors Cruise (AV Platform OS & MCU)</span>
+              <span class="exp-meta">Warren, MI | Incoming May 2026</span>
+            </div>
+            <div class="exp-content">
+              <p>Incoming Summer 2026 Intern for the AV Platform team, focusing on ACP (Autonomous Control Platform) and MCU architecture.</p>
+            </div>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-image">
+              <img src="remap_lab.jpg" alt="REMAP ML Research">
+            </div>
+            <div class="exp-header">
+              <h3>Machine Learning Researcher (Mapping & Mobility)</h3>
+              <span class="exp-company">REMAP @ Georgia Tech</span>
+              <span class="exp-meta">Atlanta, GA | Jan 2025 – Present</span>
+            </div>
+            <div class="exp-content">
+              <p>Generated spatiotemporal processing pipelines to efficiently compress and extract <strong>70+ GB</strong> of data into <strong>&lt;1 GB</strong>.</p>
+              <p>Implemented <strong>Kalman filters</strong> for "algorithmic trajectory reconstruction" of GPS data with <strong>96.3% accuracy</strong>.</p>
+              <p>Generated predictive Motif pipelines with <strong>graph-based models</strong> to identify human decision-making features with <strong>84% accuracy</strong>.</p>
+            </div>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-image">
+              <img src="no_heat_vip.jpg" alt="Perception & Simulation">
+            </div>
+            <div class="exp-header">
+              <h3>Perception & Simulation Engineer (Microclimate)</h3>
+              <span class="exp-company">REMAP @ Georgia Tech</span>
+              <span class="exp-meta">Atlanta, GA | Aug 2025 – Present</span>
+            </div>
+            <div class="exp-content">
+              <p>Processed <strong>500+ GB of LiDAR datasets</strong> to recreate 3D terrain, building, and canopy information.</p>
+              <p>Utilized <strong>SOLWEIG</strong> physics models to simulate perceived temperature with 1m resolution and an <strong>RMSE &lt; 1.5°C</strong>.</p>
+              <p>Engineered an alternative SOLWEIG method achieving <strong>93% faster runtime</strong> with no spatial compression.</p>
+            </div>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-image">
+              <img src="kavi_audio.jpg" alt="Kavi Audio Systems">
+            </div>
+            <div class="exp-header">
+              <h3>Software Engineer Intern (Systems & ML)</h3>
+              <span class="exp-company">Kavi Audio</span>
+              <span class="exp-meta">Atlanta, GA | Aug 2024 – Present</span>
+            </div>
+            <div class="exp-content">
+              <p>Developed an NLP-based recommendation system using transcript similarity analysis to automate personalizations.</p>
+              <p>Migrated local auth to <strong>AWS Cognito</strong> for enhanced security and cloud infrastructure scalability.</p>
+              <p>Built <strong>"Project Amplify"</strong> (C++/Raspberry Pi 4) to convert analog radio waves to digital internet streams.</p>
+            </div>
+          </div>
+
+      <div class="exp-card">
+        <div class="exp-image">
+          <img src="robotics_humanoid.jpg" alt="Humanoid Robot ML">
+        </div>
+        <div class="exp-header">
+          <h3>Lead ML Intern</h3>
+          <span class="exp-company">System Technology Works</span>
+          <span class="exp-meta">Alpharetta, GA | May 2024 – Aug 2024</span>
+        </div>
+        <div class="exp-content">
+          <p>Led deployment of LLMs on humanoid robot (Zeus2Q), optimizing on-device inference using Ollama.</p>
+          <p>Reduced inference latency through model selection, quantization, and system-level optimizations.</p>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-image">
+          <img src="horror_hacks.jpg" alt="Hackathon Organizing">
+        </div>
+        <div class="exp-header">
+          <h3>Chief Organizer</h3>
+          <span class="exp-company">Horror Hacks</span>
+          <span class="exp-meta">Alpharetta, GA | Oct 2022 – May 2024</span>
+        </div>
+        <div class="exp-content">
+          <p>Founded and scaled an international hackathon, designing technical tracks for AI and systems programming.</p>
+          <p>Authored and delivered hands-on technical workshops, lowering entry barriers for first-time developers.</p>
+        </div>
+      </div>
+
+    </div>  </section>
   <div class="cursor-highlight" id="cursorHighlight"></div>
   <script>
     const observer = new IntersectionObserver(entries => {

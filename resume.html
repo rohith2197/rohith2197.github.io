@@ -12,6 +12,20 @@
         margin: 0 auto;
         padding: 80px 20px;
       }
+      .resume-container {
+        width: 100%;
+        margin-bottom: 40px;
+        /* No position: relative needed anymore */
+      }
+
+      .resume-preview {
+        width: 100%;
+        height: 800px;
+        border: 2px solid var(--pink);
+        border-radius: 12px;
+        display: block;
+        background: white; /* Ensures the PDF background looks clean while loading */
+      }
 
       section {
         opacity: 0;
@@ -70,13 +84,23 @@
       </div>
     </nav>
     <section class="resume-section">
-      <h2 class="section-title">Resume</h2>
-      <iframe src="resume.pdf" class="resume-preview"></iframe>
-      <div style="text-align: center;">
-        <a href="resume.pdf" download class="download-btn">Download Resume</a>
-        <p class="muted">Last updated: 2026</p>
-      </div>
-    </section>
+          <h2 class="section-title">Resume</h2>
+
+          <div class="resume-container">
+            <object
+              data="resume.pdf#toolbar=0&navpanes=0&scrollbar=1"
+              type="application/pdf"
+              class="resume-preview">
+                <p>It appears you don't have a PDF plugin for this browser.
+                   No biggie! You can <a href="resume.pdf">click here to download the PDF file.</a></p>
+            </object>
+          </div>
+
+          <div style="text-align: center;">
+            <a href="resume.pdf" download class="download-btn">Download Resume</a>
+            <p class="muted">Last updated: 2026</p>
+          </div>
+        </section>
     <div class="cursor-highlight" id="cursorHighlight"></div>
     <script>
       const observer = new IntersectionObserver(entries => {
