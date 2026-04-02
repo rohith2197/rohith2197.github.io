@@ -3,30 +3,57 @@
   <head>
     <meta charset="UTF-8">
     <title>Resume - Rohith Pallamreddy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-height: 100vh;
+        background-color: #0a0a0a; /* Or whatever your dark hex code is */
+        overflow-x: hidden;
+        -webkit-tap-highlight-color: transparent; /* Bonus: stops the blue flash when clicking links on iPhone */
+      }
       .resume-section {
         max-width: 1000px;
         margin: 0 auto;
-        padding: 80px 20px;
+        padding: 40px 20px; /* Reduced top padding to pull everything up */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
+
       .resume-container {
         width: 100%;
-        margin-bottom: 40px;
-        /* No position: relative needed anymore */
+        max-width: 850px;
+        /* Use 60% of the screen height on mobile */
+        height: 60vh;
+        min-height: 450px; /* Safety net so it doesn't get TOO small */
+        margin-bottom: 20px;
+        border: 2px solid var(--pink);
+        border-radius: 12px;
+        overflow: hidden;
+        background: #1a1a1a;
+        /* Safari specific fix: Forces the container to be a 'box' */
+        -webkit-overflow-scrolling: touch;
       }
 
       .resume-preview {
         width: 100%;
-        height: 800px;
-        border: 2px solid var(--pink);
-        border-radius: 12px;
+        height: 100%;
         display: block;
-        background: white; /* Ensures the PDF background looks clean while loading */
+        /* This prevents the PDF from trying to 'break out' of the box */
+        border: none;
       }
 
+      /* Desktop: Make it much taller */
+      @media (min-width: 1024px) {
+        .resume-container {
+          height: 85vh;
+        }
+      }
       section {
         opacity: 0;
         transform: translateY(40px) scale(0.98);
@@ -38,14 +65,6 @@
           opacity: 1;
           transform: translateY(0) scale(1);
         }
-      }
-
-      .resume-preview {
-        width: 100%;
-        height: 800px;
-        border: 2px solid var(--pink);
-        border-radius: 12px;
-        margin-bottom: 40px;
       }
 
       .download-btn {
@@ -87,13 +106,11 @@
           <h2 class="section-title">Resume</h2>
 
           <div class="resume-container">
-            <object
-              data="resume.pdf#toolbar=0&navpanes=0&scrollbar=1"
-              type="application/pdf"
-              class="resume-preview">
-                <p>It appears you don't have a PDF plugin for this browser.
-                   No biggie! You can <a href="resume.pdf">click here to download the PDF file.</a></p>
-            </object>
+            <iframe
+              src="resume.pdf#toolbar=0&navpanes=0&scrollbar=1&view=FitH"
+              class="resume-preview"
+              style="border:none;">
+            </iframe>
           </div>
 
           <div style="text-align: center;">

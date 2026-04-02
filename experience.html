@@ -3,10 +3,19 @@
   <head>
     <meta charset="UTF-8">
     <title>Experience - Rohith Pallamreddy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-height: 100vh;
+        background-color: #0a0a0a; /* Or whatever your dark hex code is */
+        overflow-x: hidden;
+        -webkit-tap-highlight-color: transparent; /* Bonus: stops the blue flash when clicking links on iPhone */
+      }
       section {
         opacity: 0;
         transform: translateY(40px) scale(0.98);
@@ -148,7 +157,7 @@
         transform: scale(1.05);
         opacity: 1;
       }
-      
+
     </style>
   </head>
   <nav>

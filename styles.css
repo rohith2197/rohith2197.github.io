@@ -13,18 +13,31 @@
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
 }
+/* Apply the base color to the HTML level so over-scroll matches */
+/* 1. The Root Canvas */
+html {
+  /* Fixes the 'viewport' height issue on mobile */
+  height: -webkit-fill-available;
+  background-color: #000000;
+  overflow-x: hidden;
+}
+
 body {
+  /* Tells the body to be exactly the height of the screen, no more */
   min-height: 100vh;
-  background: linear-gradient(
-    -90deg,
-    #000000 0%,
-    #131010 25%,
-    #131010 50%,
-    #131010 75%,
-    #000000 100%
-  );
+  min-height: -webkit-fill-available;
+
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
+  /* Keep your gradient fixed so it doesn't move when the 'bounce' happens */
+  background: linear-gradient(-90deg, #000000 0%, #131010 50%, #000000 100%) fixed;
   background-size: 200% 200%;
-  color: var(--text);
+  animation: gradientShift 8s ease infinite;
+
+  /* This prevents 'touch-action' from triggering weird double-taps/scrolls */
+  touch-action: pan-y;
 }
 @keyframes gradientShift {
   from {
