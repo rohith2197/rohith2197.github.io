@@ -26,9 +26,103 @@
         animation: premiumFade 0.9s cubic-bezier(.16, 1, .3, 1) forwards;
       }
 
-      /* Use a stronger selector to override the general .tech-logo rules */
+      /* Container for the square grid */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+        gap: 20px;
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto 40px auto;
+      }
 
+      /* Individual Square Button */
+      .contact-btn {
+        aspect-ratio: 1 / 1; /* Forces it to stay square */
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
 
+      .contact-btn p {
+        margin-top: 15px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--muted);
+        transition: 0.3s;
+        margin-bottom: 0px;
+      }
+
+      /* Hover Effects */
+      .contact-btn:hover {
+        transform: translateY(-10px) scale(1.02);
+        border-color: var(--pink);
+        background: rgba(255, 255, 255, 0.07);
+        box-shadow: 0 15px 30px rgba(255, 77, 166, 0.15);
+      }
+
+      .contact-btn:hover p {
+        color: var(--text);
+      }
+
+      /* 1. Reset Logo Logic: Remove the global white filter */
+      .contact-logo {
+        width: 60px; /* Increased size from 40px */
+        height: 60px;
+        transition: all 0.3s ease;
+        filter: none; /* Shows original brand colors by default */
+      }
+
+      /* 2. Specific GitHub Logic: Keep it white to match your dark theme */
+      .contact-logo[alt="GitHub"] {
+        filter: brightness(0) invert(1);
+      }
+
+      /* 3. Button Adjustments */
+      .contact-btn {
+        aspect-ratio: 1 / 0.4;
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      /* 4. Hover State: Glow and lift */
+      .contact-btn:hover {
+        transform: translateY(-10px) scale(1.05);
+        border-color: var(--pink);
+        background: rgba(255, 255, 255, 0.07);
+        box-shadow: 0 15px 30px rgba(255, 77, 166, 0.2);
+      }
+
+      /* 5. Logo Hover: Slight pop */
+      .contact-btn:hover .contact-logo {
+        transform: scale(1.1);
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 600px) {
+        .contact-grid {
+          grid-template-columns: 1fr; /* Stack them on small screens */
+          gap: 15px;
+        }
+        .contact-btn {
+          aspect-ratio: auto;
+          padding: 30px;
+        }
+      }
       @keyframes premiumFade {
         to { opacity: 1; transform: translateY(0) scale(1); }
       }
@@ -70,7 +164,7 @@
                           0 0 40px rgba(255, 77, 166, 0.4);
             }
 
-      /* TECH STACK SECTION (NOW AT START) */
+            /* TECH STACK SECTION - Updated to hover/glow like skill columns */
       .tech-stack {
         margin-bottom: 60px;
         padding: 40px;
@@ -78,6 +172,15 @@
         background: rgba(255, 255, 255, 0.02);
         border-radius: 24px;
         border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease; /* Transition for the whole card */
+      }
+
+      /* Interaction: Lift and Glow */
+      .tech-stack:hover {
+        transform: translateY(-6px);
+        border-color: var(--pink);
+        background: rgba(255, 255, 255, 0.04);
+        box-shadow: 0 0 40px rgba(255, 77, 166, 0.2);
       }
 
       .tech-stack h3 {
@@ -105,10 +208,24 @@
         transition: all 0.4s ease;
       }
 
+      /* Tech logo individual hover remains same */
       .tech-logo:hover {
         filter: grayscale(0%) brightness(1);
         opacity: 1;
         transform: scale(1.15);
+      }
+
+      /* Keeping your GitHub/Rust exceptions consistent */
+      .tech-stack .tech-logo[alt="Rust"],
+      .tech-stack .tech-logo[alt="GitHub"] {
+        filter: brightness(0) invert(1);
+        opacity: 0.5;
+      }
+
+      .tech-stack .tech-logo[alt="Rust"]:hover,
+      .tech-stack .tech-logo[alt="GitHub"]:hover {
+        opacity: 1;
+        filter: brightness(0) invert(1) !important;
       }
 
       /* SHARED CARD FORMAT */
@@ -193,6 +310,11 @@
       }
 
       .contact-card h2 { color: var(--text); }
+            /* Specifically target the contact header to be pink */
+      .contact-card h2.section-title {
+          color: var(--pink);
+          text-shadow: 0 0 15px rgba(255, 77, 166, 0.3); /* Optional: subtle glow */
+      }
       .contact-card a { color: var(--pink); text-decoration: none; font-weight: 600; }
       .contact-card p { margin-bottom: 20px; color: var(--muted); }
 
@@ -300,10 +422,20 @@
       </div>
 
       <div class="contact-card">
-        <h2 class="section-title" style="margin-bottom: 24px;">Contact</h2>
-        <p>Email: <a href="mailto:p.rohith1907@gmail.com">p.rohith1907@gmail.com</a></p>
-        <p>GitHub: <a href="https://github.com/rohith2197" target="_blank">github.com/rohith2197</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/rohith-pallamreddy/" target="_blank">linkedin.com/in/rohith-pallamreddy</a></p>
+        <h2 class="section-title" style="text-align: center; margin-bottom: 40px;">Contact</h2>
+
+        <div class="contact-grid">
+          <a href="mailto:p.rohith1907@gmail.com" class="contact-btn">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Email" class="contact-logo">
+          </a>
+
+        <a href="https://github.com/rohith2197" target="_blank" class="contact-btn">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="contact-logo">
+        </a>
+
+        <a href="https://www.linkedin.com/in/rohith-pallamreddy/" target="_blank" class="contact-btn">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="contact-logo">
+        </a>
       </div>
     </section>
 

@@ -25,12 +25,13 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 16px;
+        gap: 8px; /* Reduced from 16px to 8px */
       }
 
-      /* Scaled up the section title by 120% */
       .section-title {
         font-size: 2em;
+        margin-bottom: 15px; /* Removes the default spacing below the text */
+        margin-top: 15px;    /* Optional: pulls the title higher up the page as well */
       }
 
       /* Wider border and updated container */
@@ -67,6 +68,7 @@
         text-decoration: none;
         font-weight: 700;
         border-radius: 8px;
+        margin-top: 25px;
         transition: all 0.3s ease;
       }
 
