@@ -183,7 +183,9 @@
               <span class="exp-meta">Warren, MI | Incoming May 2026</span>
             </div>
             <div class="exp-content">
-              <p>Incoming Summer 2026 Intern for the AV Platform team, focusing on ACP (Autonomous Control Platform) and MCU architecture.</p>
+              <p>Built get schema(), a Python/C API on Cruise’s PubSubMultiReader library to enforce strict IDL field types over TLV schemas, eliminating silent, high-volume type inflation (e.g., boolean variables inflating to Int64, wasting 63 of 64 bits per field) and optimizing space by dropping serialized payload footprints by up to 68.3% across pipeline boundaries in practice.</p>
+              <p>Root-caused a concurrency bug in Cruise’s infrapy C library that had silently corrupted every frame from GOP-5 cameras for months, completely blocking the Embodied AI team’s object-detection pipeline from ingesting camera data; designed a context-aware routing fix restoring full data integrity across all downstream consumers.</p>
+              <p>Extended a C extension with a recursive IDL tree walker and NAL-unit-level keyframe detector over raw H.264 Annex-B bitstreams using Exp-Golomb decoding, enabling frame-accurate bitstream seeking at scale.</p>
             </div>
           </div>
 
@@ -197,9 +199,9 @@
               <span class="exp-meta">Atlanta, GA | Jan 2025 – Present</span>
             </div>
             <div class="exp-content">
-              <p>Generated spatiotemporal processing pipelines to efficiently compress and extract <strong>70+ GB</strong> of data into <strong>&lt;1 GB</strong> for high-performance mobility analysis.</p>
-              <p>Architected <strong>algorithmic trajectory reconstruction</strong> pipelines using Kalman filters and ML, achieving <strong>96.3% accuracy</strong>, providing applications for high-fidelity <strong>Autonomous Vehicle path planning</strong> and localization.</p>
-              <p>Generated predictive Motif pipelines with <strong>graph-based models</strong> to identify human decision-making features with <strong>84% accuracy</strong>, providing applications for <strong>human-like routing in Autonomous Vehicles</strong> to increase passenger comfort and the perception of a <strong>safe, human-driven experience</strong>.</p>
+              <p>Designed spatiotemporal bit-packing and compression pipelines in C++ that reduced storage footprints by 98.5% (70+ GB to <1 GB), eliminating serialization bottlenecks for downstream routing.</p>
+              <p>Implemented Kalman filtering algorithms to smooth out high-variance state estimation signals, maintaining a 96.3% reconstruction fidelity despite radical data reduction.</p>
+              <p>Generated predictive Motif pipelines with graph-based models to identify human decision-making features with 84% accuracy</p>
             </div>
           </div>
 
@@ -213,9 +215,9 @@
               <span class="exp-meta">Atlanta, GA | Aug 2025 – May 2026</span>
             </div>
             <div class="exp-content">
-              <p>Processed <strong>500+ GB of LiDAR datasets</strong> to recreate 3-dimensional terrain, building, and canopy information for downstream environmental simulation.</p>
-              <p>Utilized LiDAR derived features to implement SOLWEIG to <strong>simulate and predict</strong> perceived microclimate (RMSE &lt; 1.5&deg;C), enabling <strong>thermal-aware routing</strong> to mitigate <strong>Autonomous Vehicle hardware overheating</strong>.</p>
-              <p>Engineered and debugged alternative SOLWEIG pipeline to simulate and predict perceived temperature with a <strong>93% faster runtime</strong>, no spatial compression, and <strong>99.3% accuracy</strong>.</p>
+              <p>Ingested 500+ GB of noisy sequential sensor streams, isolating critical behavioral telemetry from environmental noise to reconstruct highly accurate 3D simulation inputs.</p>
+              <p>Utilized LiDAR derived features to implement SOLWEIG to simulate and predict perceived microclimate (RMSE < 1.5°C), enabling thermal-aware routing to mitigate Autonomous Vehicle hardware overheating.</p>
+              <p>Engineered and debugged alternative SOLWEIG pipeline to simulate and predict perceived temperature with a 93% faster runtime, no spatial compression, and 99.3% accuracy.</p>
             </div>
           </div>
 
