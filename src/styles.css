@@ -47,3 +47,7 @@ body{cursor:var(--umbrella-cursor)}a,button,summary{cursor:var(--umbrella-cursor
 .skill-chips span{font-size:11px;padding:6px 9px}
 @media(max-width:800px){.interest-groups{grid-template-columns:1fr 1fr}.interest-group:first-child{grid-column:span 2}}
 @media(max-width:600px){.personal-section{padding-top:28px}.interest-groups{grid-template-columns:1fr}.interest-group:first-child{grid-column:auto}.interest-group{min-height:0;padding:15px}.interest-chips span{font-size:11px}.personal-heading h2{font-size:34px}}
+
+.analytics-disclosure{width:min(1100px,calc(100% - 72px));margin:9px auto 0;padding-top:9px;border-top:1px solid #ffffff20;color:#aeb6c1;font-size:11px;line-height:1.5}
+@media(max-width:800px){.analytics-disclosure{width:calc(100% - 48px)}}
+@media(max-width:600px){.analytics-disclosure{width:calc(100% - 36px);font-size:10px}}

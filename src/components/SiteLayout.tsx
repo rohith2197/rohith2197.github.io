@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
+import { Analytics, analyticsEnabled } from "./Analytics";
 
 const jokes = [
   "Intervention! That bug is now addressed.",
@@ -44,6 +45,7 @@ export function SiteLayout() {
 
   return (
     <>
+      <Analytics />
       <a className="skip-link" href="#main">Skip to content</a>
       <header className="site-header">
         <Link className="site-name" to="/">Rohith Pallamreddy<span className="name-period">.</span></Link>
@@ -59,6 +61,7 @@ export function SiteLayout() {
           <p>No slap bet required.</p>
           <a href="mailto:p.rohith1907@gmail.com">Email me <span aria-hidden="true">↗</span></a>
         </div>
+        {analyticsEnabled && <p className="analytics-disclosure">This site uses Umami for visits, referral sources, and approximate location. Its analytics tracker does not use cookies.</p>}
       </footer>
     </>
   );
