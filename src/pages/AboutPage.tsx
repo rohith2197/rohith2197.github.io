@@ -16,7 +16,7 @@ export function AboutPage() {
     <section className="inner-page section-shell">
       <div className="page-heading page-heading-image">
         <div><p className="eyebrow">About</p><h1>Haaaaave you met <em>Rohith?</em></h1><p className="page-subtitle">A Georgia Tech CS student, curious about a lot of fields—technical and otherwise.</p></div>
-        <img src="/manus-storage/async-images/tRPv8Qrh2JUtqpNK28ymmn/image-3.webp" alt="A blue French horn and yellow umbrella beside a moonlit city window" />
+        <img src="/images/about-horn-window.webp" alt="A blue French horn and yellow umbrella beside a moonlit city window" />
       </div>
       <div className="about-page-grid">
         <article className="education-panel"><span className="eyebrow">Education</span><h2>Georgia Institute of Technology</h2><p>Bachelor of Science in Computer Science <span>·</span> GPA 4.0</p><div className="education-meta"><span>Atlanta, Georgia</span><span>May 2028</span></div></article>

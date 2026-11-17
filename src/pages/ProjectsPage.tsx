@@ -29,7 +29,7 @@ export function ProjectsPage() {
     <section className="inner-page section-shell">
       <div className="page-heading page-heading-image">
         <div><p className="eyebrow">The Playbook</p><h1>Things I’ve <em>built.</em></h1><p className="page-subtitle">A few projects. No disguises required.</p></div>
-        <img src="/manus-storage/async-images/9ZRTkjgkeDWI3PAg55bsvq/image-1.webp" alt="A Manhattan roommate apartment with a blue sofa and yellow umbrella" />
+        <img src="/images/apartment-projects.webp" alt="A Manhattan roommate apartment with a blue sofa and yellow umbrella" />
       </div>
       <div className="projects-tools">
         <div className="filter-list" role="group" aria-label="Filter projects">

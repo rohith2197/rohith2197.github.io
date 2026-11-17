@@ -1,18 +1,17 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { JokeButton, UmbrellaIcon } from "../components/SiteLayout";
+import { JokeButton } from "../components/SiteLayout";
 
-const apartmentArt = "/manus-storage/async-images/9ZRTkjgkeDWI3PAg55bsvq/image-1.webp";
-const pubArt = "/manus-storage/async-images/9ZRTkjgkeDWI3PAg55bsvq/image-2.webp";
+const apartmentArt = "/images/apartment-projects.webp";
+const pubArt = "/images/pub-experience.webp";
+const aboutArt = "/images/about-horn-window.webp";
 
 const pageCards = [
   { to: "/projects", name: "Projects", note: "The Playbook", image: apartmentArt, alt: "A warm New York roommate apartment with a blue sofa, yellow umbrella and blue French horn", joke: "The apartment where the Playbook lives." },
   { to: "/experience", name: "Experience", note: "Previously, on…", image: pubArt, alt: "A cozy neighborhood pub with warm lights and a yellow umbrella", joke: "One round of work experience, coming up." },
-  { to: "/about", name: "About", note: "About Rohith", image: "/manus-storage/async-images/tRPv8Qrh2JUtqpNK28ymmn/image-3.webp", alt: "A blue French horn and yellow umbrella by a city window", joke: "The horn made the director’s cut." },
+  { to: "/about", name: "About", note: "About Rohith", image: aboutArt, alt: "A blue French horn and yellow umbrella by a city window", joke: "The horn made the director’s cut." },
 ];
 
 export function HomePage() {
-  const [spun, setSpun] = useState(false);
   return (
     <div className="home-page">
       <section className="hero-wrap">
@@ -25,13 +24,9 @@ export function HomePage() {
               <Link className="button button-dark" to="/projects">See the projects <span aria-hidden="true">↗</span></Link>
               <Link className="quiet-link" to="/experience">Previously, on Rohith…</Link>
             </div>
-            <button className="umbrella-spin-button" type="button" onClick={() => setSpun(!spun)} aria-label="Spin the yellow umbrella">
-              <UmbrellaIcon className={spun ? "hero-umbrella spun" : "hero-umbrella"} />
-              <span>Spin the umbrella</span>
-            </button>
           </div>
           <figure className="hero-art">
-            <img src="/manus-storage/async-images/KXevBiOIKpyR3CwlExgwig/image-1.webp" alt="A yellow umbrella and blue French horn on a Manhattan side street at night." fetchPriority="high" />
+            <img src="/images/home-hero.webp" alt="A yellow umbrella and blue French horn on a Manhattan side street at night." fetchPriority="high" />
             <span className="art-note art-note-top">the important stuff</span>
             <span className="art-note art-note-bottom">wait for it…</span>
             <span className="little-spark" aria-hidden="true">✳</span>
