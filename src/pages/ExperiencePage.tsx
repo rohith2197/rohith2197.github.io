@@ -1,11 +1,12 @@
 import { experience } from "../data/portfolio";
+import { publicAsset } from "../publicAsset";
 
 export function ExperiencePage() {
   return (
     <section className="inner-page section-shell">
       <div className="page-heading page-heading-image">
         <div><p className="eyebrow">Previously, on…</p><h1>The plot <em>so far.</em></h1><p className="page-subtitle">The work so far, minus the narrator.</p></div>
-        <img src="/images/pub-experience.webp" alt="A neighborhood pub with wood booths, warm lights, and a yellow umbrella" />
+        <img src={publicAsset("images/pub-experience.webp")} alt="A neighborhood pub with wood booths, warm lights, and a yellow umbrella" />
       </div>
       <div className="timeline-list">
         {experience.map((item) => (

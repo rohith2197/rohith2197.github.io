@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { projects } from "../data/portfolio";
+import { publicAsset } from "../publicAsset";
 
 const filters = ["All", "Systems", "Embedded", "ML & Data", "Robotics", "Open source"];
 const oneLiners = [
@@ -29,7 +30,7 @@ export function ProjectsPage() {
     <section className="inner-page section-shell">
       <div className="page-heading page-heading-image">
         <div><p className="eyebrow">The Playbook</p><h1>Things I’ve <em>built.</em></h1><p className="page-subtitle">A few projects. No disguises required.</p></div>
-        <img src="/images/apartment-projects.webp" alt="A Manhattan roommate apartment with a blue sofa and yellow umbrella" />
+        <img src={publicAsset("images/apartment-projects.webp")} alt="A Manhattan roommate apartment with a blue sofa and yellow umbrella" />
       </div>
       <div className="projects-tools">
         <div className="filter-list" role="group" aria-label="Filter projects">

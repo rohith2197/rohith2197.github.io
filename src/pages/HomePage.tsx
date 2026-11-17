@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { JokeButton } from "../components/SiteLayout";
+import { publicAsset } from "../publicAsset";
 
-const apartmentArt = "/images/apartment-projects.webp";
-const pubArt = "/images/pub-experience.webp";
-const aboutArt = "/images/about-horn-window.webp";
+const apartmentArt = publicAsset("images/apartment-projects.webp");
+const pubArt = publicAsset("images/pub-experience.webp");
+const aboutArt = publicAsset("images/about-horn-window.webp");
 
 const pageCards = [
   { to: "/projects", name: "Projects", note: "The Playbook", image: apartmentArt, alt: "A warm New York roommate apartment with a blue sofa, yellow umbrella and blue French horn", joke: "The apartment where the Playbook lives." },
@@ -26,7 +27,7 @@ export function HomePage() {
             </div>
           </div>
           <figure className="hero-art">
-            <img src="/images/home-hero.webp" alt="A yellow umbrella and blue French horn on a Manhattan side street at night." fetchPriority="high" />
+            <img src={publicAsset("images/home-hero.webp")} alt="A yellow umbrella and blue French horn on a Manhattan side street at night." fetchPriority="high" />
             <span className="art-note art-note-top">the important stuff</span>
             <span className="art-note art-note-bottom">wait for it…</span>
             <span className="little-spark" aria-hidden="true">✳</span>
